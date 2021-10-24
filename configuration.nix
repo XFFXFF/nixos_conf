@@ -74,6 +74,19 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
+	fonts = {
+		fontconfig.enable = true;
+		enableFontDir = true;
+		enableGhostscriptFonts = true;
+		fonts = with pkgs; [
+			noto-fonts
+			noto-fonts-cjk
+			noto-fonts-emoji
+			wqy_microhei
+			wqy_zenhei
+		];
+	};
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -83,8 +96,6 @@
     zip
     unzip
     gwenview
-    wqy_zenhei
-    wqy_microhei
     vscode
   ];
 
